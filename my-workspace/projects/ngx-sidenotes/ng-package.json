@@ -6,6 +6,7 @@
   },
   "allowedNonPeerDependencies": [
     "@ngrx/store",
-    "uuid"
+    "uuid",
+    "classnames"
   ]
 }

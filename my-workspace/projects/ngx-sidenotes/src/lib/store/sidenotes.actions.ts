@@ -19,11 +19,32 @@ export interface ConnectSidenoteAction {
   baseId?: string;
 }
 
-export interface ConnectAnchorAction extends ConnectSidenoteAction {
-  // docId: string;
-  // sidenoteId?: string;
+export interface ConnectAnchorAction {
+  docId: string;
+  sidenoteId: string;
   anchorId: string;
-  element?: string | HTMLElement;
+  element: string;
+}
+
+export interface ConnectAnchorBaseAction {
+  docId: string;
+  anchorId: string;
+  element: string;
+}
+
+export interface SelectAnchorAction {
+  docId: string;
+  anchorId: string;
+}
+
+export interface DisconnectAnchorAction {
+  docId: string;
+  anchorId: string;
+}
+
+export interface SelectSidenote {
+  docId: string;
+  sidenoteId: string;
 }
 
 export const connectSidenote = createAction(
@@ -35,15 +56,15 @@ export const connectAnchor = createAction(
 );
 
 export const connectAnchorBase = createAction(
-  SIDENOTES_ACTIONS.CONNECT_ANCHOR_BASE, props<ConnectAnchorAction>()
+  SIDENOTES_ACTIONS.CONNECT_ANCHOR_BASE, props<ConnectAnchorBaseAction>()
 );
 
 export const selectSidenote = createAction(
-  SIDENOTES_ACTIONS.SELECT_SIDENOTE, props<ConnectSidenoteAction>()
+  SIDENOTES_ACTIONS.SELECT_SIDENOTE, props<SelectSidenote>()
 );
 
 export const selectAnchor = createAction(
-  SIDENOTES_ACTIONS.SELECT_ANCHOR, props<ConnectAnchorAction>()
+  SIDENOTES_ACTIONS.SELECT_ANCHOR, props<SelectAnchorAction>()
 );
 
 export const disconnectSidenote = createAction(
@@ -51,7 +72,7 @@ export const disconnectSidenote = createAction(
 );
 
 export const disconnectAnchor = createAction(
-  SIDENOTES_ACTIONS.DISCONNECT_ANCHOR, props<ConnectAnchorAction>()
+  SIDENOTES_ACTIONS.DISCONNECT_ANCHOR, props<DisconnectAnchorAction>()
 );
 
 export const resetAllSidenotes = createAction(
