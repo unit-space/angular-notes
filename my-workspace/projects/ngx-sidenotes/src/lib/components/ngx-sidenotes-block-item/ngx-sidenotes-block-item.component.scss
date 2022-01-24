@@ -1,0 +1,15 @@
+.sidenotes-block__item {
+  position: absolute;
+  width: 280px;
+  left: 20px;
+  transition: all .3s ease;
+  > div {
+    width: 280px;
+    height: 100px;
+  }
+  &.selected {
+    left: -10px;
+    opacity: 1;
+    z-index: 1;
+  }
+}
